@@ -18,7 +18,7 @@ switch($action){
 		try {
 			$connection = new PDO("mysql:host=".$hostname.";dbname=".$database, $username, $password);
 			$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, 0);
-			$sqlFilesToInstall = count($$installerSettings["SQLFilesLocation"]);
+			$sqlFilesToInstall = count($installerSettings["SQLFilesLocation"]);
 			for($i=0; $i<$sqlFilesToInstall; $i++) {
 				$sql = file_get_contents($installerSettings["SQLFilesLocation"][$i]);
 				$connection->exec($sql);
