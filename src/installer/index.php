@@ -18,8 +18,11 @@ switch($action){
 		try {
 			$connection = new PDO("mysql:host=".$hostname.";dbname=".$database, $username, $password);
 			$connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, 0);
-			$sql = file_get_contents($installerSettings["SQLFileLocation"]);
-			$connection->exec($sql);
+			$sqlFilesToInstall = count($$installerSettings["SQLFilesLocation"]);
+			for($i=0; $i<$sqlFilesToInstall; $i++) {
+				$sql = file_get_contents($installerSettings["SQLFilesLocation"][$i]);
+				$connection->exec($sql);
+			}
 			$file_content = '<?php
 class Config {
 	public static $hostname = "'.$hostname.'";
