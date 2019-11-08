@@ -122,11 +122,10 @@ document.querySelector("#code").addEventListener("click", function(e){
 			<label>
 				<?php echo InstallerStrings::$installedSuccessContent; ?><br>
 			</label><br>
-			<label>
 <?php foreach(InstallerSettings::$installedOptions as $key => $address) { ?>
-				<a href="<?php echo $address; ?>"><input type="button" class="inline-button" value="<?php echo InstallerStrings::$installedSuccessOptions[$key]; ?>"></a>
+			<a href="<?php echo $address; ?>"><input type="button" class="inline-button" value="<?php echo InstallerStrings::$installedSuccessOptions[$key]; ?>"></a>
 <?php } ?>
-			</label><br>
+			<br>
 			<hr>
 		</main>
 <?php
